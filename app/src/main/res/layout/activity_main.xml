@@ -14,14 +14,14 @@
         <Button
                 android:layout_marginRight="3pt"
                 android:layout_width="40pt"
-                android:layout_height="40pt" android:id="@+id/btn1"/>
+                android:layout_height="40pt" android:id="@+id/btn1" android:onClick="btnClick"/>
         <Button
                 android:layout_marginRight="3pt"
                 android:layout_width="40pt"
-                android:layout_height="40pt" android:id="@+id/btn2"/>
+                android:layout_height="40pt" android:id="@+id/btn2" android:onClick="btnClick"/>
         <Button
                 android:layout_width="40pt"
-                android:layout_height="40pt" android:id="@+id/btn3"/>
+                android:layout_height="40pt" android:id="@+id/btn3" android:onClick="btnClick"/>
     </TableRow>
     <TableRow
             android:gravity="center"
@@ -30,14 +30,14 @@
         <Button
                 android:layout_marginRight="3pt"
                 android:layout_width="40pt"
-                android:layout_height="40pt" android:id="@+id/btn4"/>
+                android:layout_height="40pt" android:id="@+id/btn4" android:onClick="btnClick"/>
         <Button
                 android:layout_marginRight="3pt"
                 android:layout_width="40pt"
-                android:layout_height="40pt" android:id="@+id/btn5"/>
+                android:layout_height="40pt" android:id="@+id/btn5" android:onClick="btnClick"/>
         <Button
                 android:layout_width="40pt"
-                android:layout_height="40pt" android:id="@+id/btn6"/>
+                android:layout_height="40pt" android:id="@+id/btn6" android:onClick="btnClick"/>
     </TableRow>
     <TableRow
             android:gravity="center"
@@ -46,13 +46,13 @@
         <Button
                 android:layout_marginRight="3pt"
                 android:layout_width="40pt"
-                android:layout_height="40pt" android:id="@+id/btn7"/>
+                android:layout_height="40pt" android:id="@+id/btn7" android:onClick="btnClick"/>
         <Button
                 android:layout_marginRight="3pt"
                 android:layout_width="40pt"
-                android:layout_height="40pt" android:id="@+id/btn8"/>
+                android:layout_height="40pt" android:id="@+id/btn8" android:onClick="btnClick"/>
         <Button
                 android:layout_width="40pt"
-                android:layout_height="40pt" android:id="@+id/btn9"/>
+                android:layout_height="40pt" android:id="@+id/btn9" android:onClick="btnClick"/>
     </TableRow>
 </TableLayout>
