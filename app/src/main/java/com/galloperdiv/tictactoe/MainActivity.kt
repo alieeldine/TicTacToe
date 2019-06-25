@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,30 +38,37 @@ class MainActivity : AppCompatActivity() {
 
     var player1 = ArrayList<Int>()
     var player2 = ArrayList<Int>()
+
+    var player1Count = 0
+    var player2Count = 0
+
     var ActivePlayer = 1
+
 
     fun playGame(cellID:Int, btnSelected:Button) {
         if (ActivePlayer == 1) {
             btnSelected.text = "X"
             btnSelected.setBackgroundColor(Color.GREEN)
             player1.add(cellID)
+            player1Count++
             ActivePlayer = 2
+            AutoPlay()
         } else {
             btnSelected.text = "O"
             btnSelected.setBackgroundColor(Color.BLUE)
             player2.add(cellID)
+            player2Count++
             ActivePlayer = 1
         }
 
         btnSelected.isEnabled=false
         CheckWinner()
 
-
-
     }
 
     fun CheckWinner() {
         var winner = -1
+        var gameFinish = 0
 
         // Row 1
         if (player1.contains(1) && player1.contains(2) && player1.contains(3))
@@ -111,13 +121,44 @@ class MainActivity : AppCompatActivity() {
         if (winner != -1) {
             if (winner == 1) {
                 Toast.makeText(this, "Player 1 win the game", Toast.LENGTH_LONG).show()
-                winner = -1
-            }
-            else {
+                gameFinish = 1
+            } else {
                 Toast.makeText(this, "Player 2 win the game", Toast.LENGTH_LONG).show()
-                winner = -1
+                gameFinish = 1
             }
         }
 
+        if ((player1Count == 5 || player2Count == 5) && (gameFinish == 0))
+            Toast.makeText(this, "Draw Game, No winner", Toast.LENGTH_LONG).show()
+    }
+
+    fun AutoPlay() {
+        var emptyCells = ArrayList<Int>()
+        for (cellID in 1..9) {
+            if (!(player1.contains(cellID) || player2.contains(cellID))) {
+                emptyCells.add(cellID)
+            }
+        }
+
+        val r = Random()
+        val randIndex = r.nextInt(emptyCells.size-0)+0
+        val cellID = emptyCells[randIndex]
+
+        var btnSelect:Button?
+
+        when (cellID) {
+            1 -> btnSelect = btn1
+            2 -> btnSelect = btn2
+            3 -> btnSelect = btn3
+            4 -> btnSelect = btn4
+            5 -> btnSelect = btn5
+            6 -> btnSelect = btn6
+            7 -> btnSelect = btn7
+            8 -> btnSelect = btn8
+            9 -> btnSelect = btn9
+            else -> btnSelect = btn1
+        }
+
+        playGame(cellID, btnSelect)
     }
 }
